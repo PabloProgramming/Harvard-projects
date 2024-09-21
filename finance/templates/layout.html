@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Favicon -->
+    <link href="/static/favicon.ico" rel="icon">
+
+    <!-- Custom Stylesheet -->
+    <link href="/static/styles.css" rel="stylesheet">
+
+    <title>C$50 Finance: {% block title %}{% endblock %}</title>
+
+    <!-- Inline Styles for Button Customization, Banner, and Navbar Brand -->
+    <style>
+        .btn-custom {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            border: 1px solid #000; /* Black border */
+        }
+        .btn-custom:hover {
+            background-color: #333; /* Darker background on hover */
+            color: #fff; /* White text on hover */
+        }
+        .btn-custom:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5); /* Black outline on focus */
+        }
+        .bg-dark-custom {
+            background-color: #000; /* Black background for header */
+        }
+        .banner {
+            width: 100%; /* Full width */
+            height: 33vh; /* 1/3 of viewport height */
+            object-fit: cover; /* Cover the area without distortion */
+        }
+        .navbar-brand span {
+            color: gold; /* Gold color for "C$50 Finance" text */
+        }
+        .navbar-brand .gold {
+            color: gold; /* Gold color specifically for "Finance" */
+        }
+        .nav-link {
+            color: #000; /* Black color for nav links */
+        }
+        .nav-link:hover {
+            color: #333; /* Darker color on hover */
+        }
+        .portfolio-title {
+            color: gold; /* Gold color for portfolio title */
+            font-weight: bold; /* Bold font for emphasis */
+            position: relative;
+            z-index: 1; /* Ensure text is above the image */
+        }
+        .stock-chart {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30%; /* Resize image to smaller width */
+            height: auto; /* Maintain aspect ratio */
+            opacity: 0.2; /* Faded effect */
+            z-index: 0; /* Behind the text */
+        }
+        .investment-banner {
+            background: url('/static/investment-bg.jpg') no-repeat center center; /* Background image */
+            background-size: cover; /* Cover the area without distortion */
+            height: 300px; /* Set height for banner */
+        }
+        .buy-title {
+            color: green; /* Green color for "Buy Stocks" title */
+        }
+        .sell-title {
+            color: red; /* Red color for "Sell Stocks" title */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Banner Section -->
+    <header class="bg-dark-custom text-white text-center py-3 investment-banner">
+        <img src="/static/banner.jpg" alt="Investment Platform Banner" class="banner img-fluid">
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-light border navbar navbar-expand-md navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <span class="blue">C</span>
+                <span class="red">$</span>
+                <span class="yellow">5</span>
+                <span class="green">0</span>
+                <span class="gold">Finance</span>
+            </a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session["user_id"] %}
+                    <ul class="navbar-nav me-auto mt-2">
+                        <li class="nav-item"><a class="nav-link btn-custom" href="/quote">Quote</a></li>
+                        <li class="nav-item"><a class="nav-link btn-custom" href="/buy">Buy</a></li>
+                        <li class="nav-item"><a class="nav-link btn-custom" href="/sell">Sell</a></li>
+                        <li class="nav-item"><a class="nav-link btn-custom" href="/history">History</a></li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto mt-2">
+                        <li class="nav-item"><a class="nav-link btn-custom" href="/logout">Log Out</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav ms-auto mt-2">
+                        <li class="nav-item"><a class="nav-link btn-custom" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link btn-custom" href="/login">Log In</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% if get_flashed_messages() %}
+        <header>
+            <div class="alert alert-primary mb-0 text-center" role="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        </header>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main class="container py-5 text-center">
+        {% block main %}
+        <!-- Example of using the styled titles directly in a template -->
+        <h1 class="buy-title">Buy Stocks</h1>
+        <!-- Add your content for buying stocks here -->
+        <h1 class="sell-title">Sell Stocks</h1>
+        <!-- Add your content for selling stocks here -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="mb-5">
+        <form action="https://validator.w3.org/check" class="text-center" enctype="multipart/form-data" method="post" target="_blank">
+            <input name="doctype" type="hidden" value="HTML5">
+            <input name="fragment" type="hidden">
+            <input alt="Validate" src="/static/I_heart_validator.png" type="image"> <!-- https://validator.w3.org/ -->
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const html = '<!DOCTYPE ' +
+                document.doctype.name +
+                (document.doctype.publicId ? ' PUBLIC "' + document.doctype.publicId + '"' : '') +
+                (!document.doctype.publicId && document.doctype.systemId ? ' SYSTEM' : '') +
+                (document.doctype.systemId ? ' "' + document.doctype.systemId + '"' : '') +
+                '>\n' + document.documentElement.outerHTML;
+                document.querySelector('form[action="https://validator.w3.org/check"] > input[name="fragment"]').value = html;
+            });
+        </script>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+body {
+    background-color: #fefae0; /* Light pastel background */
+    color: #333; /* Darker text color for better readability */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif; /* Keep Montserrat for a modern look */
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    width: 80%; /* Slightly narrower container for a more compact look */
+}
+
+.header {
+    background-color: #f7b7a3; /* Soft peachy color for a warm feeling */
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow for a lifted effect */
+}
+
+.section {
+    padding: 1rem 2rem;
+    margin-bottom: 1rem; /* Spacing between sections */
+    border-radius: 10px; /* Rounded corners for sections */
+    background-color: #ffffff; /* White background for sections */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Light shadow for sections */
+}
+
+.section:hover {
+    background-color: #fdfd96; /* Light yellow on hover for a cheerful effect */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem; /* Larger heading for prominence */
+    color: #f36f6f; /* Warm coral color */
+}
+
+form {
+    display: grid;
+    gap: 1rem; /* Space between form elements */
+    max-width: 400px; /* Limiting the form width */
+    margin: 0 auto; /* Centering the form */
+    text-align: left; /* Align labels to the left */
+}
+
+label {
+    display: block;
+    font-weight: 600; /* Make labels bold */
+    margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+input[type="text"], input[type="number"] {
+    line-height: 1.8;
+    width: 100%; /* Full width for input fields */
+    padding: 0.5rem; /* Padding inside input fields */
+    border-radius: 0.25rem;
+    border: 1px solid #ddd; /* Light border color */
+}
+
+input[type="text"]:hover, input[type="number"]:hover {
+    background-color: #fff8e1; /* Light yellow background on hover */
+    border-color: #f7a8a9; /* Border color on hover */
+}
+
+button, input[type="submit"] {
+    background-color: #ffebc9; /* Light peach color */
+    border: 1px solid #f7c6c7; /* Slightly darker border for contrast */
+    border-radius: 0.5rem;
+    font-size: 1rem; /* Slightly larger font size */
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #ffcf9e; /* Slightly darker peach for hover effect */
+    border-color: #f7a8a9; /* Darker border color on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Shadow on hover for emphasis */
+}
+
+table {
+    background-color: #fff; /* White background for table */
+    margin-bottom: 1rem;
+    width: 100%;
+    border-collapse: collapse; /* Collapses borders between cells */
+}
+
+table th, table td {
+    padding: 1rem; /* Increased padding for more space */
+    vertical-align: middle;
+    border-bottom: 1px solid #f7c6c7; /* Soft border between rows */
+}
+
+thead {
+    background-color: #f7b7a3; /* Match header background color */
+    color: #fff; /* White text for contrast */
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: #fcebb1; /* Light yellow for alternating rows */
+}

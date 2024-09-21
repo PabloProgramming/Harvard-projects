@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get a Quote
+{% endblock %}
+
+{% block main %}
+    <h2 class="text-center my-4">Get Stock Quote</h2>
+    <form action="/quote" method="POST">
+        <div class="mb-3">
+            <input type="text" id="symbol" name="symbol" class="form-control mx-auto w-auto" placeholder="Stock Symbol (e.g., AAPL)" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Quote</button>
+    </form>
+{% endblock %}

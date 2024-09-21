@@ -1,0 +1,27 @@
+<!-- buy.html -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stocks
+{% endblock %}
+
+{% block main %}
+    <div class="container py-5 text-center">
+        <h1 class="buy-title">Buy Stocks</h1>
+        <form action="/buy" method="post">
+            <div class="mb-3">
+                <label for="symbol" class="form-label">Stock Symbol</label>
+                <input list="symbol-list" id="symbol" name="symbol" class="form-control mx-auto w-auto" placeholder="Type stock symbol" type="text" autocomplete="off" required>
+                <datalist id="symbol-list">
+                    <!-- Options will be populated by JavaScript -->
+                </datalist>
+            </div>
+            <div class="mb-3">
+                <label for="shares" class="form-label">Shares</label>
+                <input id="shares" name="shares" class="form-control mx-auto w-auto" placeholder="Number of shares" type="number" min="1" required>
+            </div>
+            <button class="btn btn-success" type="submit">Buy</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
+{% endblock %}

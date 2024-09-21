@@ -1,0 +1,190 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #dcdcdc !important;
+}
+
+/* Main Container Styles */
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table {
+    margin-top: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    text-align: center;
+    padding: 15px;
+}
+
+.table thead {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 4px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #dcdcdc;
+}
+
+/* Image Styles */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Add some spacing around content */
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* Center align content */
+.text-center {
+    text-align: center !important;
+}
+
+/* Investment Banner */
+.investment-banner {
+    background: url('/static/investment-bg.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px; /* Adjust as needed */
+}
+
+/* Button Styles */
+.btn-custom {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    border: 1px solid #000; /* Black border */
+}
+
+.btn-custom:hover {
+    background-color: #333; /* Darker background on hover */
+    color: #fff; /* White text on hover */
+}
+
+.btn-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5); /* Black outline on focus */
+}
+
+
+.navbar-brand .gold {
+    color: gold; /* Gold color specifically for "Finance" */
+}
+
+/* Title Styles */
+.buy-title {
+    color: green; /* Green color for "Buy Stocks" title */
+}
+
+.sell-title {
+    color: red; /* Red color for "Sell Stocks" title */
+}
+
+/* Autocomplete suggestions container */
+.suggestions-box {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: calc(100% - 2px); /* Adjust if needed */
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f1f1f1;
+}

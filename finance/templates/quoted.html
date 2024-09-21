@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stock Quote
+{% endblock %}
+
+{% block main %}
+    <h2 class="text-center my-4">Stock Quote</h2>
+    <div class="alert alert-info">
+        <strong>{{ stock.name }} ({{ stock.symbol }})</strong> is currently priced at <strong>{{ stock.price | usd }}</strong>.
+    </div>
+    <a href="/quote" class="btn btn-primary">Get Another Quote</a>
+{% endblock %}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <title>Football Trivia Quiz</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Multiple choice question logic
+            const mcButtons = document.querySelectorAll('.mc-button');
+            const mcResult = document.getElementById('mc-result');
+
+            mcButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    mcButtons.forEach(btn => btn.disabled = true); // Disable all buttons
+                    if (this.getAttribute('data-correct') === 'true') {
+                        this.classList.add('correct');
+                        mcResult.textContent = 'Correct!';
+                        mcResult.classList.add('correct');
+                    } else {
+                        this.classList.add('incorrect');
+                        mcResult.textContent = 'Incorrect';
+                        mcResult.classList.add('incorrect');
+                    }
+                });
+            });
+
+            // Free response question logic
+            const freeResponseInput = document.getElementById('free-response-input');
+            const freeResponseButton = document.getElementById('free-response-button');
+            const freeResponseResult = document.getElementById('free-response-result');
+
+            freeResponseButton.addEventListener('click', function () {
+                const userAnswer = freeResponseInput.value.trim().toLowerCase();
+                const correctAnswer = 'messi'; // Example correct answer
+
+                if (userAnswer === correctAnswer) {
+                    freeResponseInput.classList.add('correct');
+                    freeResponseResult.textContent = 'Correct!';
+                    freeResponseResult.classList.add('correct');
+                } else {
+                    freeResponseInput.classList.add('incorrect');
+                    freeResponseResult.textContent = 'Incorrect';
+                    freeResponseResult.classList.add('incorrect');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Football Trivia Quiz</h1>
+    </div>
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>Who won the FIFA World Cup in 2018?</h3>
+            <div class="mc-buttons">
+                <button class="mc-button" data-correct="false">Germany</button>
+                <button class="mc-button" data-correct="true">France</button>
+                <button class="mc-button" data-correct="false">Argentina</button>
+                <button class="mc-button" data-correct="false">Brazil</button>
+            </div>
+            <p id="mc-result" class="result"></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>Who is the top scorer in football history?</h3>
+            <form id="free-response-form">
+                <input type="text" id="free-response-input" placeholder="Type your answer here">
+                <button type="button" id="free-response-button">Submit</button>
+            </form>
+            <p id="free-response-result" class="result"></p>
+        </div>
+    </div>
+</body>
+</html>
